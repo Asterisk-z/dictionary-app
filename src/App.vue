@@ -1,6 +1,4 @@
 <template>
-  <!-- <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/> -->
   <div class="main-section">
       <div class="search-section">
           <div class="search-content">
@@ -68,8 +66,126 @@
               </div>
           </div>
 
-
-          <div class="AnotherWordSugestion">
+          <div class="container">
+            <h3>Verb</h3>
+            <swiper class="otherDefinition" 
+              :slides-per-view="3"
+              :space-between="50"
+              @swiper="onSwiper"
+              @slideChange="onSlideChange">
+                <swiper-slide class="definition">
+                  <h4 class="lead"> A syntactic marker</h4>
+                  <p class="text">All you ever do is surf the Internet. What will you do this afternoon?</p>
+                  <div class="box">
+                    <h6 class="synonyms">synonyms</h6>
+                    <ul>
+                      <li>Meal</li>
+                      <li>Sink</li>
+                      <li>Meal</li>
+                      <li>Sink</li>
+                      <li>Meal</li>
+                      <li>Sink</li>
+                    </ul>
+                  </div>
+                  <div class="box">
+                    <h6 class="antonyms">antonyms</h6>
+                    <ul>
+                      <li>Meal</li>
+                      <li>Sink</li>
+                      <li>Meal</li>
+                      <li>Sink</li>
+                      <li>Meal</li>
+                      <li>Sink</li>
+                    </ul>
+                  </div>
+                  
+                </swiper-slide>
+                <swiper-slide class="definition">
+                  <h4 class="lead"> A syntactic marker</h4>
+                  <p class="text">All you ever do is surf the Internet. What will you do this afternoon?</p>
+                  <div class="box">
+                    <h6 class="synonyms">synonyms</h6>
+                    <ul>
+                      <li>Meal</li>
+                      <li>Sink</li>
+                      <li>Meal</li>
+                      <li>Sink</li>
+                      <li>Meal</li>
+                      <li>Sink</li>
+                    </ul>
+                  </div>
+                  <div class="box">
+                    <h6 class="antonyms">antonyms</h6>
+                    <ul>
+                      <li>Meal</li>
+                      <li>Sink</li>
+                      <li>Meal</li>
+                      <li>Sink</li>
+                      <li>Meal</li>
+                      <li>Sink</li>
+                    </ul>
+                  </div>
+                  
+                </swiper-slide>
+                <swiper-slide class="definition">
+                  <h4 class="lead"> A syntactic marker</h4>
+                  <p class="text">All you ever do is surf the Internet. What will you do this afternoon?</p>
+                  <div class="box">
+                    <h6 class="synonyms">synonyms</h6>
+                    <ul>
+                      <li>Meal</li>
+                      <li>Sink</li>
+                      <li>Meal</li>
+                      <li>Sink</li>
+                      <li>Meal</li>
+                      <li>Sink</li>
+                    </ul>
+                  </div>
+                  <div class="box">
+                    <h6 class="antonyms">antonyms</h6>
+                    <ul>
+                      <li>Meal</li>
+                      <li>Sink</li>
+                      <li>Meal</li>
+                      <li>Sink</li>
+                      <li>Meal</li>
+                      <li>Sink</li>
+                    </ul>
+                  </div>
+                  
+                </swiper-slide>
+                <swiper-slide class="definition">
+                  <h4 class="lead"> A syntactic marker</h4>
+                  <p class="text">All you ever do is surf the Internet. What will you do this afternoon?</p>
+                  <div class="box">
+                    <h6 class="synonyms">synonyms</h6>
+                    <ul>
+                      <li>Meal</li>
+                      <li>Sink</li>
+                      <li>Meal</li>
+                      <li>Sink</li>
+                      <li>Meal</li>
+                      <li>Sink</li>
+                    </ul>
+                  </div>
+                  <div class="box">
+                    <h6 class="antonyms">antonyms</h6>
+                    <ul>
+                      <li>Meal</li>
+                      <li>Sink</li>
+                      <li>Meal</li>
+                      <li>Sink</li>
+                      <li>Meal</li>
+                      <li>Sink</li>
+                    </ul>
+                  </div>
+                  
+                </swiper-slide>
+            </swiper>
+          </div>
+          
+          <div class="anotherWordSugestion">
+              <h3>Other Word Suggestions</h3>
               <ul>
                 <li>Meal</li>
                 <li>Sink</li>
@@ -84,14 +200,43 @@
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
+import axios from 'axios';
 
 export default {
   name: 'App',
   components: {
-    // HelloWorld
-  }
-}
+      Swiper,
+      SwiperSlide,
+  },
+  data() {
+    return {
+      firstSuggestion: [],
+    }
+  },
+  mounted () {
+    console.clear()
+    console.log(axios);
+
+
+  },
+   methods: {
+
+  },
+  setup() {
+    const onSwiper = (swiper) => {
+      console.log(swiper);
+    };
+    const onSlideChange = () => {
+      console.log('slide change');
+    };
+    return {
+      onSwiper,
+      onSlideChange,
+    };
+  },
+};
 </script>
 
 <style>
@@ -111,6 +256,7 @@ export default {
   background: lightgray;
   position: sticky;
   top: 0;
+  z-index: 5;
 }
 
 .search-section .search-content {
@@ -179,7 +325,6 @@ export default {
 .result-section {
   background: grey;
   padding: 2em 6em;
-  height: 100vh;
 }
 
 .result-section .first-row {
@@ -198,6 +343,10 @@ export default {
   font-size: 1.5em;
   padding: .4em;
   cursor: pointer;
+}
+
+.result-section .first-row .random-text button:hover{
+  background-color: #ffffff;
 }
 
 .result-section .first-row .pronunciation{
@@ -238,17 +387,18 @@ export default {
 }
 
 .result-section .main-result .box {
-  /* background: red; */
   border: .2em solid #000000;
   margin: .5em;
   border-radius: 1em;
   padding: 1em;
   width: auto;
 }
+
 .result-section .main-result .box h5 {
   text-transform: uppercase;
   margin-bottom: 1.5em;
 }
+
 .result-section .main-result .box  ul{
   list-style: none;
   display: flex;
@@ -261,6 +411,93 @@ export default {
   padding: .2em .5em;
   outline: .2em solid #000000;
   flex: auto;
+  cursor: pointer;
+}
+.result-section .main-result .box ul li:hover {
+  background: #ffffff;
 }
 
+.anotherWordSugestion {
+  width: 100%;
+  text-align:center;
+  padding: 2em;
+}
+
+
+.anotherWordSugestion ul {
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.anotherWordSugestion ul li {
+  flex: auto;
+  list-style: none;
+  outline: .2em solid #000000;
+  margin: 1em;
+  cursor: pointer;
+}
+.anotherWordSugestion ul li:hover {
+  background: #ffffff;
+}
+
+.otherDefinition {
+  display: block;
+  text-align: center;
+  margin-top: .1em;
+}
+
+.container>h3 {
+  text-transform: uppercase;
+}
+
+.otherDefinition .definition{
+  width: 30%;
+  padding: 1em;
+  outline: .2em solid #000000;
+  border-radius: 1em;
+}
+
+.otherDefinition .definition .lead{
+   font-weight: bold;
+}
+
+.otherDefinition .definition .text::before{
+  content: "~";
+}
+
+.otherDefinition .definition .box{
+  text-align: left;
+  padding-left: 1em;
+}
+
+.otherDefinition .definition .box ul{
+  display: flex;
+  gap: .1em;
+  flex-wrap: wrap;
+}
+
+.otherDefinition .definition .box ul li{
+  list-style: none;
+}
+.otherDefinition .definition .box ul li::after{
+  content: ", ";
+  margin-right: .1em;
+}
+.otherDefinition .definition .box ul li:last-child::after{
+  content: ".";
+}
+
+.container {
+  width: 100%;
+  padding : 1em;
+  text-align: center;
+}
+
+.swiper-wrapper {
+  padding: 2em;
+}
 </style>
