@@ -5,9 +5,9 @@
       <div class="search-section">
           <div class="search-content">
             <form>
-                <div>
+                <div class="search-group">
                   <input type="text" class="search" placeholder="Search for a word..." />
-                  <span class="search-icon">Search</span>
+                  <button class="search-icon" v-on="click" type="submit"><img src="./assets/SearchIcon.svg" /></button>
                 </div>
             </form>
             <div class="wordSugestion">
@@ -23,37 +23,62 @@
           </div>
       </div>
       <div class="result-section">
-          <div>
-            <div>
+
+          <div class="first-row">
+            <div class="random-text">
                 <button>
                   Random Text
                 </button>
             </div>
-            <div>
+            <div class="pronunciation">
               <button>
-                  Pronunciation
+                  <img src="./assets/Lips.svg" />
+                  <span>/dsjdsjdjsdnʌn/</span>
               </button>
             </div>
           </div>
+
           <div class="main-result">
               <div>
-                <h3>Title</h3>
-                <h2>Result Title</h2>
-                <p>Meaning paragraph</p>
+                <h2>Gabble</h2>
+                <h5>[Kable]</h5>
+                <p>To chatter or talk inarticulately To chatter or talk inarticulately To chatter or talk inarticulately To chatter or talk inarticulately To chatter or talk inarticulately To chatter or talk inarticulately To chatter or talk inarticulately To chatter or talk inarticulately To chatter or talk inarticulately To chatter or talk inarticulately To chatter or talk inarticulately </p>
+                <div class="box">
+                  <h5>Antonyms</h5>
+                   <ul class="antonyms">
+                      <li>Meal</li>
+                      <li>Sink</li>
+                      <li>Meal</li>
+                      <li>Sink</li>
+                      <li>Meal</li>
+                      <li>Sink</li>
+                    </ul>
+                </div>
+                <div class="box">
+                  <h5>synonyms</h5>
+                   <ul class="synonyms">
+                      <li>Meal</li>
+                      <li>Sink</li>
+                      <li>Meal</li>
+                      <li>Sink</li>
+                      <li>Meal</li>
+                      <li>Sink</li>
+                    </ul>
+                </div>
               </div>
           </div>
 
 
-            <div class="AnotherWordSugestion">
-                <ul>
-                  <li>Meal</li>
-                  <li>Sink</li>
-                  <li>Meal</li>
-                  <li>Sink</li>
-                  <li>Meal</li>
-                  <li>Sink</li>
-                </ul>
-            </div>
+          <div class="AnotherWordSugestion">
+              <ul>
+                <li>Meal</li>
+                <li>Sink</li>
+                <li>Meal</li>
+                <li>Sink</li>
+                <li>Meal</li>
+                <li>Sink</li>
+              </ul>
+          </div>
       </div>
   </div>
 </template>
@@ -70,20 +95,20 @@ export default {
 </script>
 
 <style>
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Poppins";
 }
 
 .main-section {
-  background-color: red;
+  background-color: transparent;
 }
 
 .search-section {
   background: lightgray;
-  /* height: 30vh; */
   position: sticky;
   top: 0;
 }
@@ -91,6 +116,10 @@ export default {
 .search-section .search-content {
   text-align: center;
   padding: 2em;
+}
+
+.search-section .search-content .search-group {
+  position: relative;
 }
 
 .search-section .search-content form{
@@ -107,30 +136,24 @@ export default {
   font-size: 2em;
   text-transform: uppercase;
 }
-
-/* 
-.search-section .search-content .wordSugestion{
-
-} */
-
+.search-icon {
+  background-color: transparent;
+  border: none;
+  position: relative;
+  right: 5em;
+  top: 1em;
+}
+.search-icon img{
+  max-width: 3em;
+  cursor: pointer;
+}
 
 .search-section .search-content .wordSugestion ul{
-  /* background-color: blue; */
   list-style: none;
   text-align: center;
   width: 100%;
   display: flex;
   justify-content: center;
-}
-
-.search-section .search-content .wordSugestion ul li{
-
-  /* background-color: transparent; */
-  /* margin: 1em; */
-  /* padding: 1em; */
-  /* border-radius: 3em; */
-  /* min-width: 10em; */
-  /* outline: .2em solid #000000; */
 }
 
 
@@ -139,7 +162,6 @@ export default {
   background-color: transparent;
   margin: 1em;
   padding: 1em;
-  border-radius: 3em;
   min-width: 10em;
   outline: .2em solid #000000;
   text-decoration: none;
@@ -147,13 +169,98 @@ export default {
   color: #000000;
 }
 
-
+.search-section .search-content .wordSugestion ul li a:hover {
+  display: block;
+  background-color: #ffffff;
+  outline: .2em solid #000000;
+  color: #000000;
+}
 
 .result-section {
   background: grey;
-  padding: 2em;
+  padding: 2em 6em;
   height: 100vh;
 }
 
+.result-section .first-row {
+  display: block;
+  height: 5 em;
+}
+
+.result-section .first-row .random-text{
+  float: left;
+}
+
+.result-section .first-row .random-text button{
+  background-color: transparent;
+  border: none;
+  outline: 2px solid #000000;
+  font-size: 1.5em;
+  padding: .4em;
+  cursor: pointer;
+}
+
+.result-section .first-row .pronunciation{
+  float: right;
+}
+
+
+.result-section .first-row .pronunciation button{
+  display: flex;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+}
+
+.result-section .first-row .pronunciation button img{
+  width: 4em;
+}
+
+.result-section .first-row .pronunciation button span{
+  font-size: 2em;
+}
+
+.result-section .main-result {
+  text-align: center;
+  margin: 0 auto;
+  margin-top: -1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+}
+
+.result-section .main-result p {
+  width: 100%;
+  padding: .5em 3em;
+}
+
+.result-section .main-result .box {
+  /* background: red; */
+  border: .2em solid #000000;
+  margin: .5em;
+  border-radius: 1em;
+  padding: 1em;
+  width: auto;
+}
+.result-section .main-result .box h5 {
+  text-transform: uppercase;
+  margin-bottom: 1.5em;
+}
+.result-section .main-result .box  ul{
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.result-section .main-result .box ul li {
+  margin: .5em 1em;
+  padding: .2em .5em;
+  outline: .2em solid #000000;
+  flex: auto;
+}
 
 </style>
